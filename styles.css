@@ -310,6 +310,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .headshot-wrapper {
@@ -317,7 +318,11 @@ body {
     z-index: 2;
     width: 320px;
     height: 320px;
+    margin: 0 auto;
     animation: headshot-float 6s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .headshot-glow {
@@ -341,12 +346,14 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     border-radius: 50%;
     border: 4px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
                 0 0 0 1px rgba(255, 255, 255, 0.1),
                 inset 0 0 40px rgba(99, 102, 241, 0.2);
     transition: all 0.3s ease;
+    display: block;
 }
 
 .headshot-image:hover {
@@ -392,47 +399,6 @@ body {
 @keyframes rotate-border {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.floating-card {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: float-card 6s ease-in-out infinite;
-}
-
-.card-1 {
-    top: 20%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.card-2 {
-    top: 50%;
-    right: 20%;
-    animation-delay: 2s;
-}
-
-.card-3 {
-    bottom: 20%;
-    left: 40%;
-    animation-delay: 4s;
-}
-
-@keyframes float-card {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-}
-
-.card-icon {
-    font-size: 3rem;
 }
 
 .scroll-indicator {
@@ -1017,10 +983,6 @@ section {
     .headshot-wrapper {
         width: 250px;
         height: 250px;
-    }
-
-    .floating-card {
-        display: none;
     }
 
     .about-stats {
