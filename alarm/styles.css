@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Share+Tech+Mono&display=swap");
+
+@font-face {
+  font-family: "Highland Gothic";
+  src: url("HighlandGothicFLF-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f7f1e3;
+  --ink: #1c1e2b;
+  --accent: #e06b4f;
+  --electric: #1e74d4;
+  --shadow: rgba(26, 29, 40, 0.12);
+  --glass: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background-image: url("azclock.png"),
+    radial-gradient(circle at top, #ffe7c2, var(--paper)),
+    linear-gradient(120deg, #fff7eb, #f7eee1);
+  background-size: contain, cover, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 107, 79, 0.2), transparent 70%);
+  z-index: -1;
+  filter: blur(0.5px);
+}
+
+body::before {
+  top: -120px;
+  right: -120px;
+}
+
+body::after {
+  bottom: -160px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(30, 116, 212, 0.18), transparent 70%);
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+  align-items: start;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: min(100%, 900px);
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  margin: 0 0 12px;
+  color: rgba(28, 30, 43, 0.6);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0;
+}
+
+.status {
+  background: var(--glass);
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px var(--shadow);
+  font-weight: 600;
+}
+
+.clock-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 26px;
+  padding: 36px;
+  box-shadow: 0 20px 50px var(--shadow);
+  width: min(100%, 760px);
+}
+
+.clock {
+  font-family: "Highland Gothic", "Share Tech Mono", "Courier New", monospace;
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  letter-spacing: 0.08em;
+  color: #d52b1e;
+  -webkit-text-stroke: 10px #fff;
+  text-stroke: 10px #fff;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow:
+    1px 0 0 #fff,
+    -1px 0 0 #fff,
+    0 1px 0 #fff,
+    0 -1px 0 #fff,
+    1px 1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff;
+}
+
+.meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  color: rgba(28, 30, 43, 0.6);
+  font-weight: 600;
+}
+
+.controls {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  width: min(100%, 900px);
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 32px var(--shadow);
+  width: 100%;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+input[type="time"],
+input[type="range"],
+select {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 30, 43, 0.2);
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.btn {
+  border: 1px solid rgba(28, 30, 43, 0.3);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px var(--shadow);
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.hint {
+  color: rgba(28, 30, 43, 0.65);
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+}
+
+.meta-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inline-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.inline-field span {
+  font-size: 0.9rem;
+  color: rgba(28, 30, 43, 0.7);
+}
+
+.stats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin-top: 18px;
+}
+
+.stats span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: rgba(28, 30, 43, 0.6);
+}
+
+.stats strong {
+  font-size: 1.1rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 5;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.overlay h2 {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+body.alarm-on {
+  animation: strobe 0.18s infinite;
+}
+
+body.alarm-on .overlay {
+  display: flex;
+}
+
+body.fullscreen-active .wrap {
+  max-width: none;
+  padding: 20px;
+}
+
+body.fullscreen-active .top,
+body.fullscreen-active .controls {
+  display: none;
+}
+
+body.fullscreen-active .clock-card {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.fullscreen-active .clock {
+  font-size: clamp(6rem, 18vw, 16rem);
+  letter-spacing: 0.04em;
+}
+
+body.fullscreen-active .meta,
+body.fullscreen-active .meta-actions {
+  display: none;
+}
+
+@keyframes strobe {
+  0% {
+    background: #ff1a1a;
+  }
+  50% {
+    background: #1a4fff;
+  }
+  100% {
+    background: #ff1a1a;
+  }
+}
+
+@media (max-width: 700px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .clock-card {
+    padding: 24px;
+  }
+}

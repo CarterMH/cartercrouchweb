@@ -954,6 +954,18 @@ section {
     color: var(--text-secondary);
 }
 
+.copyright-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.copyright-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
 .footer-subtitle {
     margin-top: 0.5rem;
     font-size: 0.9rem;

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoZoneClock</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="top">
+        <div>
+         
+        </div>
+        <div class="status" id="syncStatus">Syncing...</div>
+      </header>
+
+      <section class="clock-card">
+        <div class="clock" id="clock">--:--:--</div>
+        <div class="meta">
+          <span id="date">---</span>
+          <span id="timezone">Local</span>
+        </div>
+        <div class="meta-actions">
+          <label class="inline-field">
+            <span>Timezone</span>
+            <select id="timezoneSelect"></select>
+          </label>
+          <button id="fullscreenBtn" class="btn ghost" type="button">Fullscreen</button>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="panel">
+          <h2>Set Alarm</h2>
+          <label class="field">
+            <span>Alarm time (selected timezone)</span>
+            <input id="alarmTime" type="time" step="1" />
+          </label>
+          <div class="row">
+            <button id="armBtn" class="btn primary">Arm Alarm</button>
+            <button id="stopBtn" class="btn">Stop / Disarm</button>
+          </div>
+          <div class="row">
+            <label class="field">
+              <span>Intensity</span>
+              <input id="intensity" type="range" min="0.4" max="1" step="0.05" value="1" />
+            </label>
+          </div>
+          <p class="hint" id="nextAlarm">No alarm set.</p>
+          <p class="hint" id="audioHint">Tap Arm to unlock loud audio.</p>
+        </div>
+        <div class="panel">
+          <h2>About the Sync</h2>
+          <p>
+            This clock uses a public time API to align your local time with
+            internet atomic time. If the sync cannot be reached, it falls back
+            to your device clock.
+          </p>
+          <div class="stats">
+            <div>
+              <span>Offset</span>
+              <strong id="offset">0 ms</strong>
+            </div>
+            <div>
+              <span>Last sync</span>
+              <strong id="lastSync">--</strong>
+            </div>
+            <div>
+              <span>Drift</span>
+              <strong id="drift">--</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="alarmOverlay" class="overlay">
+      <div>
+        <h2>ALARM</h2>
+        <p>Wake up right now.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
